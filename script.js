@@ -16,6 +16,7 @@ function Book(title, author, pages, rating, read, data) {
     const bookRating = document.createElement('p');
     const bookRead = document.createElement('p');
     const removeBook = document.createElement('button');
+    const changeRead = document.createElement('button');
     bookCard.classList.add('book-card');
     bookTitle.classList.add('book-title');
     bookAuthor.classList.add('book-author');
@@ -23,12 +24,14 @@ function Book(title, author, pages, rating, read, data) {
     bookRating.classList.add('book-rating');
     bookRead.classList.add('book-read');
     removeBook.classList.add('remove-book');
+    changeRead.classList.add('change-read');
     bookTitle.textContent = `${this.title}`;
     bookAuthor.textContent = `${this.author}`;
     bookPages.textContent = "Pages: " + `${this.pages}`;
     bookRating.textContent = "Rating: " + `${this.rating}`;
     bookRead.textContent = `${this.read}`;
     removeBook.textContent = "Remove Book";
+    changeRead.textContent = "Read";
     booksDiv.appendChild(bookCard);
     bookCard.appendChild(bookTitle);
     bookCard.appendChild(bookAuthor);
@@ -36,14 +39,25 @@ function Book(title, author, pages, rating, read, data) {
     bookCard.appendChild(bookRating);
     bookCard.appendChild(bookRead);
     bookCard.appendChild(removeBook);
+    bookCard.appendChild(changeRead);
+
     removeBook.addEventListener('click', () => {
       booksDiv.removeChild(bookCard);
       const indexOfBook = myLibrary.findIndex(object => {
         return object.data === this.data;
       })
       myLibrary.splice(indexOfBook, 1);
-    })
-    }
+    });
+
+    changeRead.addEventListener('click', () => {
+      if (this.read === 'read') {
+        this.read = 'not read';
+      } else {
+        this.read = 'read';
+      };
+      bookRead.textContent = `${this.read}`;
+    });
+    };
 };
 
 let data = 0;
