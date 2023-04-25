@@ -6,10 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TOP: David's Library</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div>
-    <h1 class="title">My Books</h1>
+  <div class="title">
+    <h1>My Books</h1>
   </div>
   <div class="book-input">
     <form id="form">
@@ -24,11 +27,11 @@
       </div>
       <div class="pages-input">
         <label for="number-pages">Pages:</label>
-        <input type="text" id="number-pages" name="number-pages">
+        <input type="number" id="number-pages" name="number-pages">
       </div>
       <div class="rating-input">
         <label for="rating-score">Ratings</label>
-        <input type="text" id="rating-score" name="rating-score">
+        <input type="number" id="rating-score" name="rating-score">
       </div>
       <div class="read-input">
         <input type="radio" id="read-status-no" name="read-status" value="not-read">
