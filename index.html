@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOP: David's Library</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div>
+    <h1 class="title">My Books</h1>
+  </div>
+  <div class="book-input">
+    <form id="form">
+      <p>Add a new book:</p>
+      <div class="title-input">
+        <label for="book-title">Title:</label>
+        <input type="text" id="book-title" name="book-title">
+      </div>
+      <div class="author-input">
+        <label for="author-name">Author:</label>
+        <input type="text" id="author-name" name="author-name">
+      </div>
+      <div class="pages-input">
+        <label for="number-pages">Pages:</label>
+        <input type="text" id="number-pages" name="number-pages">
+      </div>
+      <div class="rating-input">
+        <label for="rating-score">Ratings</label>
+        <input type="text" id="rating-score" name="rating-score">
+      </div>
+      <div class="read-input">
+        <input type="radio" id="read-status-no" name="read-status" value="not-read">
+        <label for="read-status-no">Not Read</label>
+        <input type="radio" id="read-status-yes" name="read-status" value="read">
+        <label for="read-status-yes">Read</label>
+      </div>
+      <div class="submit-button">
+        <button class="book-submit" onclick="addBookToLibrary(event)">Add Book</button>
+      </div>
+    </form>
+  </div>
+  <div class="books">
+
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
