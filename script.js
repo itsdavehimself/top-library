@@ -1,13 +1,16 @@
 let myLibrary = [];
 
-function Book(title, author, pages, rating, read, data) {
-  this.title = title
-  this.author = author
-  this.pages = pages
-  this.rating = rating
-  this.read = read
-  this.data = data
-  this.displayBook = function () {
+class Book {
+  constructor(title, author, pages, rating, read, data) {
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.rating = rating
+    this.read = read
+    this.data = data
+  }
+  
+  displayBook() {
     const booksDiv = document.querySelector('.books');
     const bookCard = document.createElement('div');
     const bookTitle = document.createElement('p');
@@ -57,8 +60,8 @@ function Book(title, author, pages, rating, read, data) {
       };
       bookRead.textContent = `${this.read}`;
     });
-    };
-};
+  }
+}
 
 let data = 0;
 function addBookToLibrary (event) {
