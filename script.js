@@ -64,7 +64,8 @@ class Book {
 }
 
 let data = 0;
-function addBookToLibrary (event) {
+function addBookToLibrary(e) {
+  console.log('???')
   let title = document.getElementById('book-title').value;
   let author = document.getElementById('author-name').value;
   let pages = document.getElementById('number-pages').value;
@@ -75,15 +76,53 @@ function addBookToLibrary (event) {
   myLibrary.push(newBook);
   newBook.displayBook();
   resetForm();
-  event.preventDefault();
+  e.preventDefault();
 };
 
 
-function resetForm () {
+function resetForm() {
   document.getElementById('book-title').value = '';
   document.getElementById('author-name').value = '';
   document.getElementById('number-pages').value = '';
   document.getElementById('rating-score').value = '';
-  document.getElementById('read-status-no').checked = false;
+  document.getElementById('read-status-no').checked = true;
   document.getElementById('read-status-yes').checked = false;
 };
+
+const submitBtn = document.querySelector('.book-submit');
+const form = document.getElementById('form');
+
+submitBtn.addEventListener('click', formValidation)
+form.addEventListener('submit', addBookToLibrary);
+
+function formValidation(e) {
+  const title = document.getElementById('book-title');
+  const author = document.getElementById('author-name');
+  const pages = document.getElementById('number-pages');
+  const rating = document.getElementById('rating-score');
+
+  if (title.validity.valueMissing) {
+    title.setCustomValidity('Please enter the book title');
+  } else {
+    title.setCustomValidity('');
+  };
+  if (author.validity.valueMissing) {
+    author.setCustomValidity('Please enter the author of the book');
+  } else {
+    author.setCustomValidity('');
+  };
+  if (pages.validity.valueMissing) {
+    pages.setCustomValidity('Please enter the number of pages');
+  } else if (pages.validity.rangeUnderflow) {
+    pages.setCustomValidity('Please enter a number other than 0.');
+  } else {
+    pages.setCustomValidity('');
+  };
+  if (rating.validity.valueMissing) {
+    rating.setCustomValidity('Please enter a rating.');
+  } else if (rating.validity.rangeUnderflow || rating.validity.rangeOverflow) {
+    rating.setCustomValidity('Please enter a number 1-5');
+  } else {
+    rating.setCustomValidity('');
+  };
+}
